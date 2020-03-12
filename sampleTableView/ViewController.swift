@@ -70,8 +70,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // 1. Option - Click Observe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPath.row
-        
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(identifier: "NewsDetailController") as! NewsDetailController
         
@@ -79,10 +77,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let row = news[indexPath.row]
             
             if let r = row as? Dictionary<String, Any> {
-                if let imageUrl = r["imageUrl"] as? String {
+                if let imageUrl = r["urlToImage"] as? String {
                     controller.imageUrl = imageUrl
                 }
-                if let desc = r["desc"] as? String {
+                if let desc = r["description"] as? String {
                     controller.desc = desc
                 }
             }
@@ -100,10 +98,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         let row = news[indexPath.row]
                         
                         if let r = row as? Dictionary<String, Any> {
-                            if let imageUrl = r["imageUrl"] as? String {
+                            if let imageUrl = r["urlToImage"] as? String {
                                 controller.imageUrl = imageUrl
                             }
-                            if let desc = r["desc"] as? String {
+                            if let desc = r["description"] as? String {
                                 controller.desc = desc
                             }
                         }

@@ -26,7 +26,7 @@ class NewsDetailController : UIViewController {
             // Get to Image 처리
             if let data = try? Data(contentsOf: URL(string: img)!) {
                 DispatchQueue.main.async {
-                    self.ImageMain.image = UIImage(data:  data)  // Main 처리
+                    self.ImageMain.image = UIImage(data: data)  // Main 처리
                 }
             }
         }
