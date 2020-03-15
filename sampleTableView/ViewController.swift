@@ -71,7 +71,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 1. Option - Click Observe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(identifier: "NewsDetailController") as! NewsDetailController
+        if #available(iOS 13.0, *) {
+            let controller = storyBoard.instantiateViewController(identifier: "NewsDetailController") as! NewsDetailController
+        } else {
+            // Fallback on earlier versions
+        }
         
         if let news = newsData {
             let row = news[indexPath.row]
